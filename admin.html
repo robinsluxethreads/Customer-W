@@ -156,13 +156,7 @@
         </div>
         <div class="form-group">
           <label>Category</label>
-          <select id="fCategory">
-            <option>Dresses</option>
-            <option>Tops</option>
-            <option>Bottoms</option>
-            <option>Outerwear</option>
-            <option>Accessories</option>
-          </select>
+          <select id="fCategory"></select>
         </div>
       </div>
       <div class="form-row">
@@ -223,12 +217,26 @@
   <script>
     let products = [];
 
-    // Load products from JSON file
+    let siteConfig = {};
+
+    // Load config and products
     function loadProducts() {
-      return fetch('data/products.json')
-        .then(r => r.json())
-        .then(data => { products = data; renderAll(); })
-        .catch(() => { products = []; renderAll(); });
+      return Promise.all([
+        fetch('data/config.json').then(r => r.json()).catch(() => ({})),
+        fetch('data/products.json').then(r => r.json()).catch(() => [])
+      ]).then(([config, prods]) => {
+        siteConfig = config;
+        products = prods;
+        loadCategoryDropdown();
+        renderAll();
+      });
+    }
+
+    function loadCategoryDropdown() {
+      const select = document.getElementById('fCategory');
+      const categories = (siteConfig.categories || []).map(c => c.name);
+      if (categories.length === 0) categories.push('Dresses', 'Tops', 'Bottoms', 'Outerwear', 'Accessories');
+      select.innerHTML = categories.map(c => `<option>${c}</option>`).join('');
     }
 
     function renderAll() {
