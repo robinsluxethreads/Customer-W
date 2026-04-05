@@ -47,6 +47,13 @@
       { "icon": "⭐", "title": "Innovation", "desc": "We constantly evolve, curating collections that blend timeless design principles with modern trends to bring you fresh, exciting styles every season." }
     ]
   },
+  "trending": {
+    "title": "Trending Now",
+    "subtitle": "Our most loved pieces this season",
+    "count": 8,
+    "mixCategories": true,
+    "productIds": [2,4,5,7,8,9,10]
+  },  
   "features": [
     { "icon": "🚚", "title": "Free Shipping", "desc": "On all orders over ₹5,000" },
     { "icon": "🔄", "title": "Easy Returns", "desc": "30-day return policy" },
