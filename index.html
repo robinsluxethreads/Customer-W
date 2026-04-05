@@ -51,8 +51,8 @@
   <section class="section fade-in" style="background: var(--bg-card);">
     <div class="container">
       <div class="section__header">
-        <h2 class="section__title">Trending Now</h2>
-        <p class="section__subtitle">Our most loved pieces this season</p>
+        <h2 class="section__title" id="trendingTitle">Trending Now</h2>
+        <p class="section__subtitle" id="trendingSubtitle">Our most loved pieces this season</p>
         <div class="section__divider"></div>
       </div>
       <div class="products-grid" id="trendingProducts"></div>
@@ -136,8 +136,33 @@
         // Categories
         renderCategories('homeCategories');
 
-        // Products
-        renderProducts('trendingProducts', products.slice(0, 4));
+        // Trending
+        document.getElementById('trendingTitle').textContent = cfg('trending.title', 'Trending Now');
+        document.getElementById('trendingSubtitle').textContent = cfg('trending.subtitle', 'Our most loved pieces this season');
+        const trendingCount = cfg('trending.count', 8) || 8;
+        const trendingIds = cfg('trending.productIds', []);
+        const mixCategories = cfg('trending.mixCategories', true);
+
+        let trendingList;
+        if (trendingIds && trendingIds.length > 0) {
+          // Show specific products by ID
+          trendingList = trendingIds.map(id => products.find(p => p.id === id)).filter(Boolean);
+        } else if (mixCategories) {
+          // Pick evenly from all categories
+          const cats = cfg('categories', []).map(c => c.name);
+          const perCat = Math.ceil(trendingCount / cats.length);
+          trendingList = [];
+          cats.forEach(cat => {
+            const catProducts = products.filter(p => p.category === cat);
+            // Shuffle and pick
+            const shuffled = catProducts.sort(() => 0.5 - Math.random());
+            trendingList.push(...shuffled.slice(0, perCat));
+          });
+          trendingList = trendingList.slice(0, trendingCount);
+        } else {
+          trendingList = products.slice(0, trendingCount);
+        }
+        renderProducts('trendingProducts', trendingList);
 
         // Features
         const features = cfg('features', []);
