@@ -1,0 +1,33 @@
+
+1)
+How to setup product : limit reach 200 +
+
+How to manage products when you grow:
+Stage 1 — Right now (1-200 products)
+
+You have ONE file: data/products.json
+Everything works fine, no changes needed
+Stage 2 — When you reach 200-500 products
+
+The "Load More" button is already working
+Customers see 20 at a time, page stays fast
+You still use ONE products.json file
+Stage 3 — When you reach 500+ products
+
+Open admin.html
+Click "Export by Category" instead of "Export products.json"
+It downloads separate files:
+products-dresses.json (only dresses)
+products-tops.json (only tops)
+products-bottoms.json (only bottoms)
+etc.
+Put these files in data/ folder
+Delete the big products.json
+Site automatically loads only what's needed → stays fast
+Images — anytime
+
+Don't upload heavy images to GitHub
+Go to imgbb.com → upload photo → copy link → paste in admin panel
+Free, unlimited, fast
+
+----------------------------------------------------
