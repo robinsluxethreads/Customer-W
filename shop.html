@@ -37,30 +37,36 @@
         <!-- Sidebar -->
         <aside class="shop-sidebar">
           <div class="filter-group">
-            <h3 class="filter-group__title">Search</h3>
-            <input type="text" id="searchFilter" placeholder="Search products..." oninput="filterProducts()" style="width:100%;padding:12px 14px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);">
+            <h3 class="filter-group__title" onclick="toggleFilter(this)">Search <span class="filter-arrow">▼</span></h3>
+            <div class="filter-group__body">
+              <input type="text" id="searchFilter" placeholder="Search products..." oninput="filterProducts()" style="width:100%;padding:12px 14px;background:var(--bg-primary);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-primary);">
+            </div>
           </div>
           <div class="filter-group">
-            <h3 class="filter-group__title">Category</h3>
-            <div id="categoryFilters"></div>
+            <h3 class="filter-group__title" onclick="toggleFilter(this)">Category <span class="filter-arrow">▼</span></h3>
+            <div class="filter-group__body" id="categoryFilters"></div>
           </div>
           <div class="filter-group">
-            <h3 class="filter-group__title">Price Range</h3>
-            <select id="priceFilter" onchange="filterProducts()">
-              <option value="all">All Prices</option>
-              <option value="0-1000">Under ₹1,000</option>
-              <option value="1000-3000">₹1,000 - ₹3,000</option>
-              <option value="3000-10000">₹3,000 - ₹10,000</option>
-              <option value="10000+">₹10,000+</option>
-            </select>
+            <h3 class="filter-group__title" onclick="toggleFilter(this)">Price Range <span class="filter-arrow">▼</span></h3>
+            <div class="filter-group__body">
+              <select id="priceFilter" onchange="filterProducts()">
+                <option value="all">All Prices</option>
+                <option value="0-1000">Under ₹1,000</option>
+                <option value="1000-3000">₹1,000 - ₹3,000</option>
+                <option value="3000-10000">₹3,000 - ₹10,000</option>
+                <option value="10000+">₹10,000+</option>
+              </select>
+            </div>
           </div>
           <div class="filter-group">
-            <h3 class="filter-group__title">Size</h3>
-            <label><input type="checkbox" value="XS" onchange="filterProducts()"> XS</label>
-            <label><input type="checkbox" value="S" onchange="filterProducts()"> S</label>
-            <label><input type="checkbox" value="M" onchange="filterProducts()"> M</label>
-            <label><input type="checkbox" value="L" onchange="filterProducts()"> L</label>
-            <label><input type="checkbox" value="XL" onchange="filterProducts()"> XL</label>
+            <h3 class="filter-group__title" onclick="toggleFilter(this)">Size <span class="filter-arrow">▼</span></h3>
+            <div class="filter-group__body">
+              <label><input type="checkbox" value="XS" onchange="filterProducts()"> XS</label>
+              <label><input type="checkbox" value="S" onchange="filterProducts()"> S</label>
+              <label><input type="checkbox" value="M" onchange="filterProducts()"> M</label>
+              <label><input type="checkbox" value="L" onchange="filterProducts()"> L</label>
+              <label><input type="checkbox" value="XL" onchange="filterProducts()"> XL</label>
+            </div>
           </div>
           <button class="btn btn--outline btn--small btn--full" onclick="clearFilters()">Clear Filters</button>
         </aside>
@@ -120,6 +126,11 @@
   <div class="toast" id="toast"></div>
   <script src="js/main.js"></script>
   <script>
+    function toggleFilter(titleEl) {
+      const group = titleEl.parentElement;
+      group.classList.toggle('collapsed');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       loadSiteData().then(() => {
         renderShopSidebar();
