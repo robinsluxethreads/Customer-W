@@ -2,8 +2,8 @@
   "brand": {
     "name": "ROBINS LUXE THREADS",
     "tagline": "Curating elegance for the modern woman. Premium quality clothing that makes you feel confident and beautiful every day.",
-    "year": "2030",
-    "heroSubtitle": "New Collection 2036",
+    "year": "2026",
+    "heroSubtitle": "Spring/Summer 2026",
     "heroTitle": "Elegance Redefined for the Modern Woman",
     "heroDesc": "Discover curated collections that blend timeless sophistication with contemporary style."
   },
@@ -13,9 +13,9 @@
   },
   "contact": {
     "whatsappNumber": "919025256341",
-    "email": "robinsluxethreads@gamil.com",
-    "supportEmail": "robinsluxethreads@gamil.com",
-    "phone": "+91 98765 43210",
+    "email": "robinsluxethreads@gmail.com",
+    "supportEmail": "robinsluxethreads@gmail.com",
+    "phone": "+91 ***** *****",
     "phoneHours": "Mon - Fri: 9AM - 6PM IST",
     "address": "123 Fashion Avenue\nMumbai, Maharashtra 400001\nIndia",
     "storeHours": "Monday - Saturday: 10AM - 8PM\nSunday: 11AM - 6PM"
@@ -31,9 +31,9 @@
     "title": "Our Story",
     "description": "Born from a passion for timeless elegance and modern design, Robins Luxe Threads is where sophistication meets everyday fashion.",
     "whoWeAre": "Robins Luxe Threads was founded with a simple vision: to make high-quality, elegant fashion accessible to every woman. We believe that what you wear is a reflection of who you are, and every woman deserves to feel confident and beautiful.",
-    "whoWeAre2": "As a modern fashion startup, we carefully source and select our products from trusted suppliers, bringing you styles that combine quality, comfort, and trend. Every piece in our collection is handpicked with attention to detail, ensuring it meets our standards before it reaches you.",
+    "whoWeAre2": "As a modern fashion startup, we carefully source and select products from trusted suppliers, bringing you styles that combine quality, comfort, and trend. Every piece in our collection is handpicked with attention to detail to meet our standards before it reaches you.",
     "whoWeAre3":"From timeless classics to contemporary trends, our collections are designed to suit the evolving style of today’s woman—without compromising on affordability or elegance.",
-     "whoWeAre4":"At Robins Luxe Threads, it’s not just about clothing—it’s about helping you express your confidence every day.",
+    "whoWeAre4":"At Robins Luxe Threads, it’s not just about clothing—it’s about helping you express your confidence every day.",
     "stats": [
       { "number": "100+", "label": "Happy Customers", "desc": "And growing every day" },
       { "number": "50+", "label": "Products", "desc": "Curated with care" },
@@ -41,10 +41,10 @@
       { "number": "4.8", "label": "Star Rating", "desc": "Average customer review" }
     ],
     "values": [
-      { "icon": "🌱", "title": "Sustainability", "desc": "We are committed to ethical sourcing and sustainable practices. Our fabrics are chosen with care for both quality and the planet." },
-      { "icon": "💎", "title": "Quality", "desc": "Every stitch matters. We maintain the highest standards of craftsmanship so our pieces look and feel exceptional." },
-      { "icon": "💖", "title": "Inclusivity", "desc": "Fashion is for everyone. We design with diverse body types in mind, offering sizes from XS to XL across our collections." },
-      { "icon": "⭐", "title": "Innovation", "desc": "We constantly evolve, blending timeless design principles with modern trends to bring you fresh, exciting styles every season." }
+      { "icon": "🌱", "title": "Sustainability", "desc": "We strive to make fashion more responsible. We carefully select products from suppliers who prioritize ethical practices and materials, choosing pieces that are kind to both people and the planet." },
+      { "icon": "💎", "title": "Quality", "desc": "Every detail matters. We handpick items that meet our standards for craftsmanship, comfort, and durability." },
+      { "icon": "💖", "title": "Inclusivity", "desc": "Fashion is for everyone. Our collections feature a range of sizes—from XS to XL—designed to celebrate diverse body types and make every woman feel confident." },
+      { "icon": "⭐", "title": "Innovation", "desc": "We constantly evolve, curating collections that blend timeless design principles with modern trends to bring you fresh, exciting styles every season." }
     ]
   },
   "features": [
