@@ -126,7 +126,7 @@
         if (valuesEl && values.length) {
           valuesEl.innerHTML = values.map(v => `
             <div class="about-value">
-              <div class="about-value__icon">${v.icon}</div>
+              <div class="about-value__icon">${v.image ? `<img src="${v.image}" alt="${v.title}" style="width:56px;height:56px;object-fit:contain;" onerror="this.outerHTML='${v.icon}'">` : v.icon}</div>
               <h3 class="about-value__title">${v.title}</h3>
               <p class="about-value__desc">${v.desc}</p>
             </div>
@@ -139,7 +139,7 @@
         if (statsEl && stats.length) {
           statsEl.innerHTML = stats.map(s => `
             <div class="feature">
-              <div class="feature__icon" style="font-size:2.5rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;">${s.number}</div>
+              <div class="feature__icon" style="font-size:2.5rem;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;">${s.image ? `<img src="${s.image}" alt="${s.label}" style="width:56px;height:56px;object-fit:contain;margin-bottom:8px;" onerror="this.outerHTML='${s.number}'">` : s.number}</div>
               <h3 class="feature__title">${s.label}</h3>
               <p class="feature__desc">${s.desc}</p>
             </div>
