@@ -26,13 +26,13 @@
         "emailField": "entry.735564270"
     },
     "contact": {
-        "formAction": "https://docs.google.in/forms/d/e/.../formResponse",
+        "formAction": "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAzCJ6IiuwmhCiUGbtTGCb5m2K6aYAFvWK16B_cn6EVWNauA/formResponse",
         "fields": {
-            "firstName": "entry.785740097",
-            "lastName": "entry.634884441",
-            "email": "entry.115479147",
-            "subject": "entry.81727957",
-            "message": "entry.373541668"
+            "firstName": "entry.305752455",
+            "lastName": "entry.1538897109",
+            "email": "entry.1065230031",
+            "subject": "entry.874724495",
+            "message": "entry.1180395266"
         }
     }
 },
