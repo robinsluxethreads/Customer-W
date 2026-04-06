@@ -178,11 +178,11 @@
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Price ($)</label>
+          <label id="priceLabelMain">Price</label>
           <input type="number" id="fPrice" step="0.01" min="0" placeholder="289.00">
         </div>
         <div class="form-group">
-          <label>Old Price ($) <span style="color:var(--text3);font-weight:400;">(optional, for sales)</span></label>
+          <label id="priceLabelOld">Old Price <span style="color:var(--text3);font-weight:400;">(optional, for sales)</span></label>
           <input type="number" id="fOldPrice" step="0.01" min="0" placeholder="350.00">
         </div>
       </div>
@@ -209,14 +209,7 @@
       </div>
       <div class="form-group">
         <label>Available Sizes</label>
-        <div class="size-checks">
-          <label><input type="checkbox" value="XS" class="fSize"> XS</label>
-          <label><input type="checkbox" value="S" class="fSize"> S</label>
-          <label><input type="checkbox" value="M" class="fSize" checked> M</label>
-          <label><input type="checkbox" value="L" class="fSize"> L</label>
-          <label><input type="checkbox" value="XL" class="fSize"> XL</label>
-          <label><input type="checkbox" value="One Size" class="fSize"> One Size</label>
-        </div>
+        <div class="size-checks" id="fSizeChecks"></div>
       </div>
       <div class="form-group">
         <label>Description</label>
@@ -265,6 +258,7 @@
         })
         .then(() => {
           loadCategoryDropdown();
+          updateCurrencyLabels();
           renderAll();
         });
     }
@@ -282,6 +276,27 @@
       if (adminCat) {
         adminCat.innerHTML = '<option value="all">All Categories</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join('');
       }
+
+      // Size checkboxes from config
+      const sizes = (siteConfig.sizes || ['XS', 'S', 'M', 'L', 'XL']);
+      const allSizes = [...sizes];
+      if (!allSizes.includes('One Size')) allSizes.push('One Size');
+      const sizeChecks = document.getElementById('fSizeChecks');
+      if (sizeChecks) {
+        sizeChecks.innerHTML = allSizes.map(s => `<label><input type="checkbox" value="${s}" class="fSize" ${s === 'M' ? 'checked' : ''}> ${s}</label>`).join('');
+      }
+    }
+
+    function getCurrencySymbol() {
+      return (siteConfig.currency && siteConfig.currency.symbol) || '₹';
+    }
+
+    function updateCurrencyLabels() {
+      const sym = getCurrencySymbol();
+      const pl = document.getElementById('priceLabelMain');
+      if (pl) pl.textContent = `Price (${sym})`;
+      const ol = document.getElementById('priceLabelOld');
+      if (ol) ol.innerHTML = `Old Price (${sym}) <span style="color:var(--text3);font-weight:400;">(optional, for sales)</span>`;
     }
 
     function renderAll() {
@@ -332,8 +347,8 @@
           <td class="td-name">${p.name}<br><span style="font-size:0.7rem;color:var(--text3);">RLT-${String(p.id).padStart(3, '0')}</span></td>
           <td>${p.category}</td>
           <td>
-            <span class="td-price">₹${p.price.toLocaleString('en-IN')}</span>
-            ${p.oldPrice ? `<span class="td-old-price">₹${p.oldPrice.toLocaleString('en-IN')}</span>` : ''}
+            <span class="td-price">${getCurrencySymbol()}${p.price.toLocaleString('en-IN')}</span>
+            ${p.oldPrice ? `<span class="td-old-price">${getCurrencySymbol()}${p.oldPrice.toLocaleString('en-IN')}</span>` : ''}
           </td>
           <td class="td-sizes">${p.sizes.join(', ')}</td>
           <td>${p.badge ? `<span class="td-badge ${p.badge.toLowerCase()}">${p.badge}</span>` : '-'}</td>
